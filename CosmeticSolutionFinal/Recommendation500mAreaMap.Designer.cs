@@ -29,33 +29,33 @@ namespace CosmeticSolutionFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // label1
+            // webBrowser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "500m 이내 입점 추천 정보 맵";
+            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(800, 450);
+            this.webBrowser.TabIndex = 1;
             // 
             // Recommendation500mAreaMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.webBrowser);
             this.Name = "Recommendation500mAreaMap";
             this.Text = "500m 이내 입점 추천 정보 맵";
+            this.Load += new System.EventHandler(this.Recommendation500mAreaMap_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }
