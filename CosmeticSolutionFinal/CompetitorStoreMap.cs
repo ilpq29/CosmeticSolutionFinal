@@ -28,10 +28,15 @@ namespace CosmeticSolutionFinal
             try
             {
                 StringBuilder queryaddress = new StringBuilder();
-                queryaddress.Append("http://maps.google.com/maps?q=");
+               // queryaddress.Append("http://maps.google.com/maps?q="); //구글맵
+                // queryaddress.Append("https://map.naver.com/v5/search/"); //네이버맵
+                queryaddress.Append("map.kakao.com/?map_type=TYPE_MAP&q="); //카카오맵
+       
+
                 if (stationName != string.Empty)
                 {
-                    queryaddress.Append(stationName + "," + "+" + "화장품");
+                    queryaddress.Append(stationName + "+화장품");
+                    MessageBox.Show(queryaddress.ToString());
                 }
 
                 webBrowser.Navigate(queryaddress.ToString());
