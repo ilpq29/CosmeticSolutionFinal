@@ -64,6 +64,9 @@ namespace CosmeticSolutionFinal
             form = new RecommendStoreOpenCloseTime();
             RegisterChildForm("RecommendStoreOpenCloseTime", form);
 
+            //6 kakao map
+            form = new KakaoMap();
+            RegisterChildForm("Kakaomap", form);
             ShowChildForm(childformNameList[0]);
         }
 
@@ -115,6 +118,11 @@ namespace CosmeticSolutionFinal
         {
             // 5. Open Close 시간 추천 화면
             ShowChildForm(childformNameList[4]);
+        }
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //6
+            ShowChildForm(childformNameList[5]);
         }
     }
 }
