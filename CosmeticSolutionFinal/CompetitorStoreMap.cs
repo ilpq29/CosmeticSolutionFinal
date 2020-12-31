@@ -17,9 +17,34 @@ namespace CosmeticSolutionFinal
             InitializeComponent();
         }
 
-        private void CompetitorStoreMap_Load(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            webBrowser.Navigate("www.google.co.kr");/*"https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyAENM67H18NwY6zTBdyB6M1oRedclmjbsc"*/
+            webBroswerCompetitorStore();
         }
+
+        private void webBroswerCompetitorStore()
+        {
+            string stationName = txtSubwayStation.Text;
+            try
+            {
+                StringBuilder queryaddress = new StringBuilder();
+                queryaddress.Append("http://maps.google.com/maps?q=");
+                if (stationName != string.Empty)
+                {
+                    queryaddress.Append(stationName + "," + "+" + "화장품");
+                }
+
+                webBrowser.Navigate(queryaddress.ToString());
+
+                webBrowser.ScriptErrorsSuppressed = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "지하철역을 입력해주세요");
+            }
+        }
+
+
+       
     }
 }
