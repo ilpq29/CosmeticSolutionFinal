@@ -36,7 +36,7 @@ namespace CosmeticSolutionFinal
                 if (stationName != string.Empty)
                 {
                     queryaddress.Append(stationName + "+화장품");
-                    MessageBox.Show(queryaddress.ToString());
+                    //MessageBox.Show(queryaddress.ToString());
                 }
 
                 webBrowser.Navigate(queryaddress.ToString());
