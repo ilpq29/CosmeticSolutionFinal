@@ -39,6 +39,8 @@ namespace CosmeticSolutionFinal
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -47,17 +49,19 @@ namespace CosmeticSolutionFinal
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.button1);
             this.layoutControl1.Controls.Add(this.webBrowser1);
             this.layoutControl1.Controls.Add(this.textBox1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(487, 221, 650, 400);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(957, 286, 650, 400);
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(800, 450);
             this.layoutControl1.TabIndex = 0;
@@ -65,9 +69,9 @@ namespace CosmeticSolutionFinal
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(483, 12);
+            this.button1.Location = new System.Drawing.Point(495, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 20);
+            this.button1.Size = new System.Drawing.Size(95, 20);
             this.button1.TabIndex = 7;
             this.button1.Text = "검색";
             this.button1.UseVisualStyleBackColor = true;
@@ -83,9 +87,9 @@ namespace CosmeticSolutionFinal
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(176, 12);
+            this.textBox1.Location = new System.Drawing.Point(293, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 20);
+            this.textBox1.Size = new System.Drawing.Size(198, 20);
             this.textBox1.TabIndex = 4;
             // 
             // Root
@@ -97,7 +101,8 @@ namespace CosmeticSolutionFinal
             this.emptySpaceItem1,
             this.emptySpaceItem2,
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 450);
             this.Root.TextVisible = false;
@@ -114,9 +119,9 @@ namespace CosmeticSolutionFinal
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(597, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(582, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(183, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(198, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -124,26 +129,45 @@ namespace CosmeticSolutionFinal
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(164, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(163, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.textBox1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(164, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(281, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(307, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(202, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.button1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(471, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(483, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(126, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(99, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(175, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "지하철역";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.label1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(163, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(118, 24);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // KakaoMap
             // 
@@ -162,6 +186,7 @@ namespace CosmeticSolutionFinal
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +203,7 @@ namespace CosmeticSolutionFinal
         private System.Windows.Forms.Button button1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

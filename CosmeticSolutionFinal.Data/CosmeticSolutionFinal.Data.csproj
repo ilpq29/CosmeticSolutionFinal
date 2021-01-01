@@ -82,6 +82,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dao\OrderDao.cs" />
     <Compile Include="EFLibrary\BaseDao.cs" />
     <Compile Include="EFLibrary\DbContextCreator.cs" />
     <Compile Include="EFLibrary\DualKeyDao.cs" />
@@ -105,6 +106,7 @@
     </Compile>
     <Compile Include="Dao\BrandDao.cs" />
     <Compile Include="Dao\StationDao.cs" />
+    <Compile Include="Models\AgeModel.cs" />
     <Compile Include="Models\StationModel.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
