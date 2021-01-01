@@ -31,12 +31,10 @@ namespace CosmeticSolutionFinal
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,7 +43,6 @@ namespace CosmeticSolutionFinal
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -55,7 +52,6 @@ namespace CosmeticSolutionFinal
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.button1);
-            this.layoutControl1.Controls.Add(this.listBox1);
             this.layoutControl1.Controls.Add(this.webBrowser1);
             this.layoutControl1.Controls.Add(this.textBox1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,26 +69,16 @@ namespace CosmeticSolutionFinal
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 20);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "검색";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(12, 36);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(142, 400);
-            this.listBox1.TabIndex = 6;
-            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
-            // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(158, 36);
+            this.webBrowser1.Location = new System.Drawing.Point(12, 36);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(630, 402);
+            this.webBrowser1.Size = new System.Drawing.Size(776, 402);
             this.webBrowser1.TabIndex = 5;
             // 
             // textBox1
@@ -101,7 +87,6 @@ namespace CosmeticSolutionFinal
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(303, 20);
             this.textBox1.TabIndex = 4;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // Root
             // 
@@ -109,7 +94,6 @@ namespace CosmeticSolutionFinal
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
             this.layoutControlItem1,
@@ -121,20 +105,11 @@ namespace CosmeticSolutionFinal
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.webBrowser1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(146, 24);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(634, 406);
+            this.layoutControlItem3.Size = new System.Drawing.Size(780, 406);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.listBox1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(146, 406);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -183,7 +158,6 @@ namespace CosmeticSolutionFinal
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -202,8 +176,6 @@ namespace CosmeticSolutionFinal
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
