@@ -30,18 +30,24 @@ namespace CosmeticSolutionFinal
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel1 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ageModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ageModelBindingSource)).BeginInit();
@@ -58,6 +64,28 @@ namespace CosmeticSolutionFinal
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // chartControl1
+            // 
+            this.chartControl1.DataSource = this.ageModelBindingSource;
+            this.chartControl1.Location = new System.Drawing.Point(12, 53);
+            this.chartControl1.Name = "chartControl1";
+            series1.ArgumentDataMember = "Birth";
+            doughnutSeriesLabel1.TextPattern = "{A}대";
+            series1.Label = doughnutSeriesLabel1;
+            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series1.Name = "Series 1";
+            series1.ValueDataMembersSerializable = "TotalPrice";
+            series1.View = doughnutSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl1.SeriesTemplate.ArgumentDataMember = "Date";
+            this.chartControl1.SeriesTemplate.DateTimeSummaryOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Year;
+            this.chartControl1.SeriesTemplate.DateTimeSummaryOptions.MeasureUnitMultiplier = 1;
+            this.chartControl1.SeriesTemplate.ValueDataMembersSerializable = "TotalPrice";
+            this.chartControl1.SeriesTemplate.View = doughnutSeriesView2;
+            this.chartControl1.Size = new System.Drawing.Size(776, 385);
+            this.chartControl1.TabIndex = 4;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -68,22 +96,6 @@ namespace CosmeticSolutionFinal
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 450);
             this.Root.TextVisible = false;
-            // 
-            // chartControl1
-            // 
-            this.chartControl1.DataSource = this.ageModelBindingSource;
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram1;
-            this.chartControl1.Location = new System.Drawing.Point(12, 53);
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.SeriesDataMember = "Birth";
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.SeriesTemplate.ArgumentDataMember = "Date";
-            this.chartControl1.SeriesTemplate.SeriesDataMember = "Birth";
-            this.chartControl1.SeriesTemplate.ValueDataMembersSerializable = "TotalPrice";
-            this.chartControl1.Size = new System.Drawing.Size(776, 385);
-            this.chartControl1.TabIndex = 4;
             // 
             // layoutControlItem1
             // 
@@ -114,11 +126,15 @@ namespace CosmeticSolutionFinal
             this.Controls.Add(this.layoutControl1);
             this.Name = "AnalysisResult";
             this.Text = "추천 결과";
+            this.Load += new System.EventHandler(this.AnalysisResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ageModelBindingSource)).EndInit();

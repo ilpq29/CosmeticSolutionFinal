@@ -8,6 +8,13 @@ namespace CosmeticSolutionFinal.Data.Models
 {
     public class AgeModel
     {
+        public AgeModel(int birth, int totalPrice, DateTime date)
+        {
+            Date = date;
+            Birth = birth;
+            TotalPrice = totalPrice;
+        }
+
         //private object date;
 
         //public AgeModel(int birth, int totalPrice)
