@@ -19,7 +19,7 @@ namespace CosmeticSolutionFinal
     {
 
         public AnalysisResult AgeGroup;
-        int DDate = DateTime.Today.Year;
+        //int DDate = DateTime.Today.Year;
         ChartControl pieChart;
         public AnalysisResult()
         {
@@ -29,7 +29,7 @@ namespace CosmeticSolutionFinal
         {
 
             AgeGroup = new AnalysisResult();
-            ageModelBindingSource.DataSource = Dao.ooder.AgeRank(DDate - 1);
+            ageModelBindingSource.DataSource = Dao.ooder.AgeRank();
             pieChart = new ChartControl();
 
         }
