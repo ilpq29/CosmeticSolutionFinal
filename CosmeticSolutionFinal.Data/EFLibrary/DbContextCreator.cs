@@ -10,7 +10,7 @@ namespace EFLibrary
 {
     public class DbContextCreator
     {
-        private const string ConnectionString = "metadata=res://*/CosmeticFinalModel.csdl|res://*/CosmeticFinalModel.ssdl|res://*/CosmeticFinalModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=10.10.31.22;initial catalog=CosmeticFinal;persist security info=True;user id=sa;password=3512;MultipleActiveResultSets=True;App=EntityFramework\"";
+        private const string ConnectionString = "metadata=res://*/CosmeticFinalModel.csdl|res://*/CosmeticFinalModel.ssdl|res://*/CosmeticFinalModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=cn76.ipdisk.co.kr,3423;initial catalog=CosmeticFinal;persist security info=True;user id=8F;password=1;MultipleActiveResultSets=True;App=EntityFramework\"";
 
         public static CosmeticFinalEntities Create()
         {
