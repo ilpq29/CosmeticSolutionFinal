@@ -5,26 +5,26 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f34f820aaff24288917ccf0c23a8968a" Name="Diagram1">
-        <EntityTypeShape EntityType="CosmeticFinalModel.Branch" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Brand" Width="1.5" PointX="3" PointY="15.875" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Category" Width="1.5" PointX="3" PointY="18.375" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Customer" Width="1.5" PointX="3" PointY="12.625" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.FinancialStatement" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Order" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.OrderLine" Width="1.5" PointX="7.5" PointY="1.5" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.PassengerInfo" Width="1.5" PointX="3" PointY="4.625" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Product" Width="1.5" PointX="5.25" PointY="16.625" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.ResultOfAnalysi" Width="1.5" PointX="3" PointY="8.25" />
-        <EntityTypeShape EntityType="CosmeticFinalModel.Station" Width="1.5" PointX="0.75" PointY="4.75" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_Branch_Station" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_Order_Branch" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_Product_Brand" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_Product_Category" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_Order_Customer" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_OrderLine_Order" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_OrderLine_Product" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_TransportInfo_Station" />
-        <AssociationConnector Association="CosmeticFinalModel.FK_ResultOfAnalysis_Station" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Branch" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Brand" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Category" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Customer" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.FinancialStatement" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Order" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.OrderLine" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.PassengerInfo" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Product" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.ResultOfAnalysi" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeticFinalModel.Station" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_Branch_Station" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_Order_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_Product_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_OrderLine_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_OrderLine_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_TransportInfo_Station" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeticFinalModel.FK_ResultOfAnalysis_Station" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,23 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CosmeticFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CosmeticFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Branch">
           <Key>
             <PropertyRef Name="BranchId" />
           </Key>
-          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="100" />
-          <Property Name="Latitude" Type="float" />
-          <Property Name="Longitude" Type="float" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="BrandId" />
           </Key>
-          <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Vegan" Type="int" Nullable="false" />
         </EntityType>
@@ -28,14 +26,14 @@
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Birth" Type="int" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="10" Nullable="false" />
@@ -61,7 +59,7 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="SelledAt" Type="datetime" Nullable="false" />
           <Property Name="TotalPrice" Type="int" Nullable="false" />
@@ -71,7 +69,7 @@
           <Key>
             <PropertyRef Name="OrderLineId" />
           </Key>
-          <Property Name="OrderLineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderLineId" Type="int" Nullable="false" />
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
@@ -84,8 +82,8 @@
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="PopulationPerMonth" Type="int" Nullable="false" />
-          <Property Name="PercentOfWomen" Type="int" Nullable="false" />
-          <Property Name="PercentOfTwentyThirty" Type="int" Nullable="false" />
+          <Property Name="PercentOfWomen" Type="float" Nullable="false" />
+          <Property Name="PercentOfTwentyThirty" Type="float" Nullable="false" />
           <Property Name="OpenTimeEight" Type="int" />
           <Property Name="OpenTimeNine" Type="int" />
           <Property Name="CloseTimeNine" Type="int" />
@@ -95,7 +93,7 @@
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="BrandId" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -105,7 +103,7 @@
           <Key>
             <PropertyRef Name="ResultOfAnalysisId" />
           </Key>
-          <Property Name="ResultOfAnalysisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResultOfAnalysisId" Type="int" Nullable="false" />
           <Property Name="AnalizedAt" Type="datetime" Nullable="false" />
           <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="ScoreOfWomenRatio" Type="int" Nullable="false" />
@@ -117,11 +115,9 @@
           <Key>
             <PropertyRef Name="StationId" />
           </Key>
-          <Property Name="StationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StationId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Latitude" Type="float" />
-          <Property Name="Longitude" Type="float" />
         </EntityType>
         <Association Name="FK_Branch_Station">
           <End Role="Station" Type="Self.Station" Multiplicity="1">
@@ -296,98 +292,48 @@
             <End Role="PassengerInfo" EntitySet="PassengerInfo" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CosmeticFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CosmeticFinalEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Branches" EntityType="CosmeticFinalModel.Branch" />
-          <EntitySet Name="Brands" EntityType="CosmeticFinalModel.Brand" />
-          <EntitySet Name="Categories" EntityType="CosmeticFinalModel.Category" />
-          <EntitySet Name="Customers" EntityType="CosmeticFinalModel.Customer" />
-          <EntitySet Name="FinancialStatements" EntityType="CosmeticFinalModel.FinancialStatement" />
-          <EntitySet Name="Orders" EntityType="CosmeticFinalModel.Order" />
-          <EntitySet Name="OrderLines" EntityType="CosmeticFinalModel.OrderLine" />
-          <EntitySet Name="PassengerInfoes" EntityType="CosmeticFinalModel.PassengerInfo" />
-          <EntitySet Name="Products" EntityType="CosmeticFinalModel.Product" />
-          <EntitySet Name="ResultOfAnalysis" EntityType="CosmeticFinalModel.ResultOfAnalysi" />
-          <EntitySet Name="Stations" EntityType="CosmeticFinalModel.Station" />
-          <AssociationSet Name="FK_Branch_Station" Association="CosmeticFinalModel.FK_Branch_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="Branch" EntitySet="Branches" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Branch" Association="CosmeticFinalModel.FK_Order_Branch">
-            <End Role="Branch" EntitySet="Branches" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_Brand" Association="CosmeticFinalModel.FK_Product_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_Category" Association="CosmeticFinalModel.FK_Product_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Customer" Association="CosmeticFinalModel.FK_Order_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderLine_Order" Association="CosmeticFinalModel.FK_OrderLine_Order">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="OrderLine" EntitySet="OrderLines" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderLine_Product" Association="CosmeticFinalModel.FK_OrderLine_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="OrderLine" EntitySet="OrderLines" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransportInfo_Station" Association="CosmeticFinalModel.FK_TransportInfo_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="PassengerInfo" EntitySet="PassengerInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ResultOfAnalysis_Station" Association="CosmeticFinalModel.FK_ResultOfAnalysis_Station">
-            <End Role="Station" EntitySet="Stations" />
-            <End Role="ResultOfAnalysi" EntitySet="ResultOfAnalysis" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Branch">
           <Key>
             <PropertyRef Name="BranchId" />
           </Key>
-          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
           <Property Name="StationId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="Double" />
-          <Property Name="Longitude" Type="Double" />
-          <NavigationProperty Name="Station" Relationship="CosmeticFinalModel.FK_Branch_Station" FromRole="Branch" ToRole="Station" />
-          <NavigationProperty Name="Orders" Relationship="CosmeticFinalModel.FK_Order_Branch" FromRole="Branch" ToRole="Order" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_Branch_Station" FromRole="Branch" ToRole="Station" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Branch" FromRole="Branch" ToRole="Order" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="BrandId" />
           </Key>
-          <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Vegan" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="CosmeticFinalModel.FK_Product_Brand" FromRole="Brand" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Brand" FromRole="Brand" ToRole="Product" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="CosmeticFinalModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Birth" Type="Int32" Nullable="false" />
-          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="CosmeticFinalModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
         </EntityType>
         <EntityType Name="FinancialStatement">
           <Key>
@@ -410,25 +356,25 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="SelledAt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TotalPrice" Type="Int32" Nullable="false" />
           <Property Name="BranchId" Type="Int32" />
-          <NavigationProperty Name="Branch" Relationship="CosmeticFinalModel.FK_Order_Branch" FromRole="Order" ToRole="Branch" />
-          <NavigationProperty Name="Customer" Relationship="CosmeticFinalModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="OrderLines" Relationship="CosmeticFinalModel.FK_OrderLine_Order" FromRole="Order" ToRole="OrderLine" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Order_Branch" FromRole="Order" ToRole="Branch" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="OrderLines" Relationship="Self.FK_OrderLine_Order" FromRole="Order" ToRole="OrderLine" />
         </EntityType>
         <EntityType Name="OrderLine">
           <Key>
             <PropertyRef Name="OrderLineId" />
           </Key>
-          <Property Name="OrderLineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderLineId" Type="Int32" Nullable="false" />
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="CosmeticFinalModel.FK_OrderLine_Order" FromRole="OrderLine" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="CosmeticFinalModel.FK_OrderLine_Product" FromRole="OrderLine" ToRole="Product" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderLine_Order" FromRole="OrderLine" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_OrderLine_Product" FromRole="OrderLine" ToRole="Product" />
         </EntityType>
         <EntityType Name="PassengerInfo">
           <Key>
@@ -438,58 +384,56 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StationId" Type="Int32" Nullable="false" />
           <Property Name="PopulationPerMonth" Type="Int32" Nullable="false" />
-          <Property Name="PercentOfWomen" Type="Int32" Nullable="false" />
-          <Property Name="PercentOfTwentyThirty" Type="Int32" Nullable="false" />
+          <Property Name="PercentOfWomen" Type="Double" Nullable="false" />
+          <Property Name="PercentOfTwentyThirty" Type="Double" Nullable="false" />
           <Property Name="OpenTimeEight" Type="Int32" />
           <Property Name="OpenTimeNine" Type="Int32" />
           <Property Name="CloseTimeNine" Type="Int32" />
           <Property Name="CloseTimeTen" Type="Int32" />
-          <NavigationProperty Name="Station" Relationship="CosmeticFinalModel.FK_TransportInfo_Station" FromRole="PassengerInfo" ToRole="Station" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_TransportInfo_Station" FromRole="PassengerInfo" ToRole="Station" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="BrandId" Type="Int32" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MarketPrice" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Brand" Relationship="CosmeticFinalModel.FK_Product_Brand" FromRole="Product" ToRole="Brand" />
-          <NavigationProperty Name="Category" Relationship="CosmeticFinalModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="OrderLines" Relationship="CosmeticFinalModel.FK_OrderLine_Product" FromRole="Product" ToRole="OrderLine" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_Product_Brand" FromRole="Product" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="OrderLines" Relationship="Self.FK_OrderLine_Product" FromRole="Product" ToRole="OrderLine" />
         </EntityType>
         <EntityType Name="ResultOfAnalysi">
           <Key>
             <PropertyRef Name="ResultOfAnalysisId" />
           </Key>
-          <Property Name="ResultOfAnalysisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultOfAnalysisId" Type="Int32" Nullable="false" />
           <Property Name="AnalizedAt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StationId" Type="Int32" Nullable="false" />
           <Property Name="ScoreOfWomenRatio" Type="Int32" Nullable="false" />
           <Property Name="ScoreOfCompetitorStore" Type="Int32" Nullable="false" />
           <Property Name="ScoreOfStoreSpace" Type="Int32" Nullable="false" />
           <Property Name="ScoreOfBranchNumber" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Station" Relationship="CosmeticFinalModel.FK_ResultOfAnalysis_Station" FromRole="ResultOfAnalysi" ToRole="Station" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_ResultOfAnalysis_Station" FromRole="ResultOfAnalysis" ToRole="Station" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
             <PropertyRef Name="StationId" />
           </Key>
-          <Property Name="StationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="Double" />
-          <Property Name="Longitude" Type="Double" />
-          <NavigationProperty Name="Branches" Relationship="CosmeticFinalModel.FK_Branch_Station" FromRole="Station" ToRole="Branch" />
-          <NavigationProperty Name="PassengerInfoes" Relationship="CosmeticFinalModel.FK_TransportInfo_Station" FromRole="Station" ToRole="PassengerInfo" />
-          <NavigationProperty Name="ResultOfAnalysis" Relationship="CosmeticFinalModel.FK_ResultOfAnalysis_Station" FromRole="Station" ToRole="ResultOfAnalysi" />
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Branches" Relationship="Self.FK_Branch_Station" FromRole="Station" ToRole="Branch" />
+          <NavigationProperty Name="PassengerInfoes" Relationship="Self.FK_TransportInfo_Station" FromRole="Station" ToRole="PassengerInfo" />
+          <NavigationProperty Name="ResultOfAnalysis" Relationship="Self.FK_ResultOfAnalysis_Station" FromRole="Station" ToRole="ResultOfAnalysis" />
         </EntityType>
         <Association Name="FK_Branch_Station">
-          <End Type="CosmeticFinalModel.Station" Role="Station" Multiplicity="1">
+          <End Role="Station" Type="Self.Station" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.Branch" Role="Branch" Multiplicity="*" />
+          <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Station">
               <PropertyRef Name="StationId" />
@@ -500,10 +444,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Branch">
-          <End Type="CosmeticFinalModel.Branch" Role="Branch" Multiplicity="0..1">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.Order" Role="Order" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Branch">
               <PropertyRef Name="BranchId" />
@@ -514,10 +458,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Brand">
-          <End Type="CosmeticFinalModel.Brand" Role="Brand" Multiplicity="1">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Brand">
               <PropertyRef Name="BrandId" />
@@ -528,10 +472,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Category">
-          <End Type="CosmeticFinalModel.Category" Role="Category" Multiplicity="1">
+          <End Role="Category" Type="Self.Category" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -542,10 +486,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Customer">
-          <End Type="CosmeticFinalModel.Customer" Role="Customer" Multiplicity="1">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.Order" Role="Order" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -556,10 +500,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderLine_Order">
-          <End Type="CosmeticFinalModel.Order" Role="Order" Multiplicity="1">
+          <End Role="Order" Type="Self.Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.OrderLine" Role="OrderLine" Multiplicity="*" />
+          <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="OrderId" />
@@ -570,10 +514,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderLine_Product">
-          <End Type="CosmeticFinalModel.Product" Role="Product" Multiplicity="1">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.OrderLine" Role="OrderLine" Multiplicity="*" />
+          <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -584,8 +528,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TransportInfo_Station">
-          <End Type="CosmeticFinalModel.Station" Role="Station" Multiplicity="1" />
-          <End Type="CosmeticFinalModel.PassengerInfo" Role="PassengerInfo" Multiplicity="*" />
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
+          <End Role="PassengerInfo" Type="Self.PassengerInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Station">
               <PropertyRef Name="StationId" />
@@ -596,20 +540,69 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ResultOfAnalysis_Station">
-          <End Type="CosmeticFinalModel.Station" Role="Station" Multiplicity="1">
+          <End Role="Station" Type="Self.Station" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CosmeticFinalModel.ResultOfAnalysi" Role="ResultOfAnalysi" Multiplicity="*" />
+          <End Role="ResultOfAnalysis" Type="Self.ResultOfAnalysi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Station">
               <PropertyRef Name="StationId" />
             </Principal>
-            <Dependent Role="ResultOfAnalysi">
+            <Dependent Role="ResultOfAnalysis">
               <PropertyRef Name="StationId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="CosmeticFinalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="FinancialStatements" EntityType="Self.FinancialStatement" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderLines" EntityType="Self.OrderLine" />
+          <EntitySet Name="PassengerInfoes" EntityType="Self.PassengerInfo" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ResultOfAnalysis" EntityType="Self.ResultOfAnalysi" />
+          <EntitySet Name="Stations" EntityType="Self.Station" />
+          <AssociationSet Name="FK_Branch_Station" Association="Self.FK_Branch_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Branch" Association="Self.FK_Order_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Brand" Association="Self.FK_Product_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLine_Order" Association="Self.FK_OrderLine_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderLine" EntitySet="OrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLine_Product" Association="Self.FK_OrderLine_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderLine" EntitySet="OrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportInfo_Station" Association="Self.FK_TransportInfo_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="PassengerInfo" EntitySet="PassengerInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultOfAnalysis_Station" Association="Self.FK_ResultOfAnalysis_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="ResultOfAnalysis" EntitySet="ResultOfAnalysis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -618,128 +611,124 @@
           <EntitySetMapping Name="Branches">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Branch">
               <MappingFragment StoreEntitySet="Branch">
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="StationId" ColumnName="StationId" />
                 <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Brands">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
-                <ScalarProperty Name="Vegan" ColumnName="Vegan" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Vegan" ColumnName="Vegan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Birth" ColumnName="Birth" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Birth" ColumnName="Birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FinancialStatements">
             <EntityTypeMapping TypeName="CosmeticFinalModel.FinancialStatement">
               <MappingFragment StoreEntitySet="FinancialStatement">
-                <ScalarProperty Name="당기순이익" ColumnName="당기순이익" />
-                <ScalarProperty Name="영업외손익" ColumnName="영업외손익" />
-                <ScalarProperty Name="영업이익" ColumnName="영업이익" />
-                <ScalarProperty Name="판매비와관리비" ColumnName="판매비와관리비" />
-                <ScalarProperty Name="매출총이익" ColumnName="매출총이익" />
-                <ScalarProperty Name="매출원가" ColumnName="매출원가" />
-                <ScalarProperty Name="매출액" ColumnName="매출액" />
-                <ScalarProperty Name="자본" ColumnName="자본" />
-                <ScalarProperty Name="부채" ColumnName="부채" />
-                <ScalarProperty Name="자산" ColumnName="자산" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="FinancialStatementId" ColumnName="FinancialStatementId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="자산" ColumnName="자산" />
+                <ScalarProperty Name="부채" ColumnName="부채" />
+                <ScalarProperty Name="자본" ColumnName="자본" />
+                <ScalarProperty Name="매출액" ColumnName="매출액" />
+                <ScalarProperty Name="매출원가" ColumnName="매출원가" />
+                <ScalarProperty Name="매출총이익" ColumnName="매출총이익" />
+                <ScalarProperty Name="판매비와관리비" ColumnName="판매비와관리비" />
+                <ScalarProperty Name="영업이익" ColumnName="영업이익" />
+                <ScalarProperty Name="영업외손익" ColumnName="영업외손익" />
+                <ScalarProperty Name="당기순이익" ColumnName="당기순이익" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="SelledAt" ColumnName="SelledAt" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="SelledAt" ColumnName="SelledAt" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderLines">
             <EntityTypeMapping TypeName="CosmeticFinalModel.OrderLine">
               <MappingFragment StoreEntitySet="OrderLine">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="OrderLineId" ColumnName="OrderLineId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PassengerInfoes">
             <EntityTypeMapping TypeName="CosmeticFinalModel.PassengerInfo">
               <MappingFragment StoreEntitySet="PassengerInfo">
-                <ScalarProperty Name="CloseTimeTen" ColumnName="CloseTimeTen" />
-                <ScalarProperty Name="CloseTimeNine" ColumnName="CloseTimeNine" />
-                <ScalarProperty Name="OpenTimeNine" ColumnName="OpenTimeNine" />
-                <ScalarProperty Name="OpenTimeEight" ColumnName="OpenTimeEight" />
-                <ScalarProperty Name="PercentOfTwentyThirty" ColumnName="PercentOfTwentyThirty" />
-                <ScalarProperty Name="PercentOfWomen" ColumnName="PercentOfWomen" />
-                <ScalarProperty Name="PopulationPerMonth" ColumnName="PopulationPerMonth" />
-                <ScalarProperty Name="StationId" ColumnName="StationId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="PopulationPerMonth" ColumnName="PopulationPerMonth" />
+                <ScalarProperty Name="PercentOfWomen" ColumnName="PercentOfWomen" />
+                <ScalarProperty Name="PercentOfTwentyThirty" ColumnName="PercentOfTwentyThirty" />
+                <ScalarProperty Name="OpenTimeEight" ColumnName="OpenTimeEight" />
+                <ScalarProperty Name="OpenTimeNine" ColumnName="OpenTimeNine" />
+                <ScalarProperty Name="CloseTimeNine" ColumnName="CloseTimeNine" />
+                <ScalarProperty Name="CloseTimeTen" ColumnName="CloseTimeTen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="MarketPrice" ColumnName="MarketPrice" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MarketPrice" ColumnName="MarketPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ResultOfAnalysis">
             <EntityTypeMapping TypeName="CosmeticFinalModel.ResultOfAnalysi">
               <MappingFragment StoreEntitySet="ResultOfAnalysis">
-                <ScalarProperty Name="ScoreOfBranchNumber" ColumnName="ScoreOfBranchNumber" />
-                <ScalarProperty Name="ScoreOfStoreSpace" ColumnName="ScoreOfStoreSpace" />
-                <ScalarProperty Name="ScoreOfCompetitorStore" ColumnName="ScoreOfCompetitorStore" />
-                <ScalarProperty Name="ScoreOfWomenRatio" ColumnName="ScoreOfWomenRatio" />
-                <ScalarProperty Name="StationId" ColumnName="StationId" />
-                <ScalarProperty Name="AnalizedAt" ColumnName="AnalizedAt" />
                 <ScalarProperty Name="ResultOfAnalysisId" ColumnName="ResultOfAnalysisId" />
+                <ScalarProperty Name="AnalizedAt" ColumnName="AnalizedAt" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="ScoreOfWomenRatio" ColumnName="ScoreOfWomenRatio" />
+                <ScalarProperty Name="ScoreOfCompetitorStore" ColumnName="ScoreOfCompetitorStore" />
+                <ScalarProperty Name="ScoreOfStoreSpace" ColumnName="ScoreOfStoreSpace" />
+                <ScalarProperty Name="ScoreOfBranchNumber" ColumnName="ScoreOfBranchNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stations">
             <EntityTypeMapping TypeName="CosmeticFinalModel.Station">
               <MappingFragment StoreEntitySet="Station">
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
