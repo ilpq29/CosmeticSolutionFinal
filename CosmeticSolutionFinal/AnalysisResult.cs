@@ -29,7 +29,7 @@ namespace CosmeticSolutionFinal
         {
 
             AgeGroup = new AnalysisResult();
-            ageModelBindingSource.DataSource = Dao.ooder.AgeRank();
+            ageModelBindingSource.DataSource = Dao.order.AgeRank();
             pieChart = new ChartControl();
 
         }
