@@ -24,8 +24,6 @@ namespace CosmeticSolutionFinal.Data
         public int StationId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public Nullable<double> Latitude { get; set; }
-        public Nullable<double> Longitude { get; set; }
     
         public virtual Station Station { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

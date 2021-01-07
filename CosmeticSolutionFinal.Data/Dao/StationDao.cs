@@ -16,15 +16,18 @@ namespace CosmeticSolutionFinal.Data
         {
             throw new NotImplementedException();
         }
-        
-        public List<StationModel> GetStations()
+
+        public static List<Station> GetStation(string name, string address)
         {
             using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
             {
-                return context.Stations.Select(x => x.Address).ToList();               
+                var query = from x in context.Stations
+                            where x.Name.Contains(name) && x.Address.Contains(address)
+                            select x;
+                return query.ToList();
             }
-        }
-        
+
+        }    
     }
 }
 
