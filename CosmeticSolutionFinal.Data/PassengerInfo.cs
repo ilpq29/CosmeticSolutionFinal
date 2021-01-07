@@ -17,8 +17,8 @@ namespace CosmeticSolutionFinal.Data
         public System.DateTime Date { get; set; }
         public int StationId { get; set; }
         public int PopulationPerMonth { get; set; }
-        public double PercentOfWomen { get; set; }
-        public double PercentOfTwentyThirty { get; set; }
+        public int PercentOfWomen { get; set; }
+        public int PercentOfTwentyThirty { get; set; }
         public Nullable<int> OpenTimeEight { get; set; }
         public Nullable<int> OpenTimeNine { get; set; }
         public Nullable<int> CloseTimeNine { get; set; }
