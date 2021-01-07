@@ -67,11 +67,6 @@ namespace CosmeticSolutionFinal
             //6 kakao map
             form = new KakaoMap();
             RegisterChildForm("Kakaomap", form);
-
-            //7. 내맘대로홈
-            form = new MyChoice();
-            RegisterChildForm("MyChoice", form);
-
             ShowChildForm(childformNameList[0]);
         }
 
@@ -128,12 +123,6 @@ namespace CosmeticSolutionFinal
         {
             //6
             ShowChildForm(childformNameList[5]);
-        }
-
-        private void barButtonItem6_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            // 7 MyChoice
-            ShowChildForm(childformNameList[6]);
         }
     }
 }
