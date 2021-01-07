@@ -1,4 +1,5 @@
-﻿using EFLibrary;
+﻿using CosmeticSolutionFinal.Data.Models;
+using EFLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +11,29 @@ namespace CosmeticSolutionFinal.Data
 {
     public class StationDao : SingleKeyDao<Station, int>
     {
-        protected override Expression<Func<Station, int>> KeySelector => throw new NotImplementedException();
+        protected override Expression<Func<Station, int>> KeySelector => x => x.StationId;
 
         protected override Expression<Func<Station, bool>> IsKey(int key)
         {
             throw new NotImplementedException();
         }
 
-        public static List<Station> GetStation(string name, string address)
+        public static List<StationModel> GetAddress()
         {
             using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
             {
-                var query = from x in context.Stations
-                            where x.Name.Contains(name) && x.Address.Contains(address)
-                            select x;
-                return query.ToList();
-            }
+                var list = context.Stations.OrderBy(x => x.Address).ToList();
 
-        }    
+                List<StationModel> model = new List<StationModel>();
+
+                foreach(var x in list)
+                {
+                    model.Add(new StationModel(x.Address));
+                }
+                return model;
+            }
+       
+        }
     }
 }
 

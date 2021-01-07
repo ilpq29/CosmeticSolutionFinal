@@ -8,6 +8,6 @@ namespace CosmeticSolutionFinal.Data.Dao
 {
     public class Dao
     {
-        public static OrderDao ooder = new OrderDao();
+        public static OrderDao order = new OrderDao();
     }
 }
