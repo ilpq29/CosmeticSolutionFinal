@@ -18,18 +18,37 @@ namespace CosmeticSolutionFinal
         {
             InitializeComponent();
         }
-
         private void Recommendation500mAreaMap_Load(object sender, EventArgs e)
         {
-
+        }
+        private void comboSearchAddress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSearchAddress.SelectedValue != null)
+            {
+                string stationName = Convert.ToString(comboSearchAddress.SelectedValue.ToString());
+                ListStationInfo(stationName);
+            }
+        }
+        public void ListAddressInfo()
+        {
+            comboSearchAddress.DataSource = StationDao.GetAddress();
+        }
+        public void ListStationInfo(string address)
+        {
+            List<Station> stationList = StationDao.GetStation(address);
+            comboSearchStation.Items.Clear();
+            foreach (var x in stationList)
+            {
+                comboSearchStation.Items.Add(x.Name);
+            }
+        }
+        private void comboSearchAddress_Click(object sender, EventArgs e)
+        {
+            ListAddressInfo();
         }
 
-        private void comboAddress_Click(object sender, EventArgs e)
+        private void comboSearchStation_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            List<StationModel> model = StationDao.GetAddress();
-            comboAddress.Properties.Items.AddRange(model);       
-
         }
     }
 }
