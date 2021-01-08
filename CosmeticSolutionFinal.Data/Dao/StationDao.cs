@@ -18,22 +18,29 @@ namespace CosmeticSolutionFinal.Data
             throw new NotImplementedException();
         }
 
-        public static List<StationModel> GetAddress()
+        public static List<string> GetAddress()
         {
             using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
             {
-                var list = context.Stations.OrderBy(x => x.Address).ToList();
+                var query = from x in context.Stations
+                            select x.Address;
 
-                List<StationModel> model = new List<StationModel>();
-
-                foreach(var x in list)
-                {
-                    model.Add(new StationModel(x.Address));
-                }
-                return model;
+                var list = query.Distinct().ToList();
+                return list;
             }
-       
         }
+        public static List<Station> GetStation(string address)
+        {
+            using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
+            {
+                var query = from x in context.Stations
+                            where x.Address == address
+                            select x;
+                var list = query.ToList();
+                return list;
+            }
+        }
+      
     }
 }
 

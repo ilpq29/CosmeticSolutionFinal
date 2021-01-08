@@ -15,12 +15,7 @@ namespace CosmeticSolutionFinal.Data
     public partial class Station
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Station()
-        {
-            this.Branches = new HashSet<Branch>();
-            this.PassengerInfoes = new HashSet<PassengerInfo>();
-            this.ResultOfAnalysis = new HashSet<ResultOfAnalysi>();
-        }
+        
     
         public int StationId { get; set; }
         public string Name { get; set; }
