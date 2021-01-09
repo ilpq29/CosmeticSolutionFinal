@@ -9,17 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CosmeticSolutionFinal.Data;
 using CosmeticSolutionFinal.Data.Models;
+using DevExpress.XtraMap;
 
 namespace CosmeticSolutionFinal
 {
     public partial class Recommendation500mAreaMap : Form
     {
+
+
         public Recommendation500mAreaMap()
         {
             InitializeComponent();
         }
         private void Recommendation500mAreaMap_Load(object sender, EventArgs e)
         {
+
         }
         private void comboSearchAddress_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -42,6 +46,17 @@ namespace CosmeticSolutionFinal
                 comboSearchStation.Items.Add(x.Name);
             }
         }
+        public void ListCoordinatesInfo(string address, double latitude, double longitude)
+        {
+            List<StationModel> coordinateList = StationDao.GetCoordinates(address, latitude, longitude);
+          
+            comboSearchStation.SelectedValue = address;
+            foreach (var x in coordinateList)
+            {
+                comboBox1.Items.Add(x.Latitude);
+            }   
+                    
+        }
         private void comboSearchAddress_Click(object sender, EventArgs e)
         {
             ListAddressInfo();
@@ -49,6 +64,37 @@ namespace CosmeticSolutionFinal
 
         private void comboSearchStation_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboSearchStation.SelectedValue != null)
+            {
+                string stationName = Convert.ToString(comboSearchAddress.SelectedValue.ToString());
+                double latitude, longitude;
+            }
+             
         }
+
+        /*private IMapDataAdapter CreateAdapter(object source)
+        {
+            ListSourceDataAdapter adapter = new ListSourceDataAdapter();
+            adapter.DataSource = source;
+
+            adapter.Mappings.Latitude = "Latitude";
+            adapter.Mappings.Longitude = "Longitude";
+
+            adapter.AttributeMappings.Add(new MapItemAttributeMapping() { Member = "", Name = "" });
+            adapter.AttributeMappings.Add(new MapItemAttributeMapping() { Member = "", Name = "" });
+
+
+            return adapter; 
+        }
+
+        private List<Station> LoadData(string path)
+        {
+            return StationModel.Load(path).Element("Ships").Elements("Ship")
+                .Select(e => new ShipwreckData(
+                    latitude: Convert.ToDouble(e.Element("Latitude").Value, CultureInfo.InvariantCulture),
+                    longitude: Convert.ToDouble(e.Element("Longitude").Value, CultureInfo.InvariantCulture)
+                ))
+                .ToList();
+        }*/
     }
 }

@@ -36,11 +36,35 @@ namespace CosmeticSolutionFinal.Data
                 var query = from x in context.Stations
                             where x.Address == address
                             select x;
+
                 var list = query.ToList();
                 return list;
             }
         }
-      
+        public static List<StationModel> GetCoordinates (string address, double latitude, double longitude)
+        {
+            using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
+            {
+                var query = from x in context.Stations
+                            where x.Address == address
+                            select new
+                            {
+                                address = x.Address,
+                                latitude = x.Latitude,
+                                longitude = x.Longitude
+                            };
+                var list = query.ToList();
+
+                List<StationModel> model = new List<StationModel>();
+
+                foreach (var x in query)
+                {
+                    model.Add(new StationModel(address, latitude, longitude));
+                }
+                return model;
+            }
+
+        }
     }
 }
 

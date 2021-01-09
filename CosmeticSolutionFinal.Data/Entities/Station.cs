@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CosmeticSolutionFinal.Data
 {
-    /*public partial class Station
+    public partial class Station
     {
- 
+
         public string LatitudeText
         {
             get
@@ -24,6 +24,6 @@ namespace CosmeticSolutionFinal.Data
                 return Longitude.ToString();
             }
         }
-    
-    }*/
+
+    }
 }
