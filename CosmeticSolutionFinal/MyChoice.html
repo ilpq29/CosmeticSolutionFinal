@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style type="text/css">
+html, body { width: 99%; height: 98%; }
+</style>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 생성하기</title>
+</head>
+<body>
+<div id="map" style="width:100%; height:100%; "></div>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=622450a9a37e6276aa4408e96724c99a&libraries=services"></script>
+<script>
+
+    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 생성합니다    
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places();
+
+    // 키워드로 장소를 검색합니다
+    function geo(address) {
+        ps.keywordSearch(address + "역", placesSearchCB);
+    }
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB(data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            var bounds = new kakao.maps.LatLngBounds();
+            for (var i = 0; i < 10; i++) {
+                displayMarker(data[i]);
+                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            }
+            
+            displayCircle(data[0]);
+            
+            //for (var i = 0; i < 10; i++) {
+            //    displayMarker1(data[i]);
+            //    bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            //}
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+            map.setBounds(bounds);
+        }
+    }
+    
+    //function displayMarker1(place) {
+    //    var marker = new kakao.maps.Marker({
+    //        map: map,
+    //        position: new kakao.maps.LatLng(place.x+0.005, place.y+0.005)
+            
+    //    });
+    //    kakao.maps.event.addListener(marker, 'click', function () {
+    //        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+    //        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + "보증금 100만원" + '</div>');
+    //        infowindow.open(map, marker);
+    //    });
+    //}
+
+    function displayCircle(place) {
+        //지도에 원을 표시한다
+        var circle = new kakao.maps.Circle({
+            map: map, // 원을 표시할 지도 객체
+            center: new kakao.maps.LatLng(place.y, place.x), // 지도의 중심 좌표
+            radius: 250, // 원의 반지름 (단위 : m)
+            fillColor: '#FF0000', // 채움 색
+            fillOpacity: 0.5, // 채움 불투명도
+            strokeWeight: 3, // 선의 두께
+            strokeColor: '#FF0000', // 선 색
+            strokeOpacity: 0.9, // 선 투명도 
+            strokeStyle: 'solid' // 선 스타일
+        });	
+    }
+     //지도에 마커를 표시하는 함수입니다
+    function displayMarker(place) {
+
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x)
+        });
+        
+         //마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function () {
+            //var i = 0;
+            //var dataa = [ 193, 493, 546, 123, 234, 456, 565, 345, 341, 111 ];
+            
+            //dataa[0] = 180;
+            //datta[1] = 280;
+            //dataa[2] = 200;
+            //datta[3] = 120;
+            //dataa[4] = 150;
+            //datta[5] = 205;
+            //dataa[6] = 100;
+            //datta[7] = 200;
+            //datta[8] = 300;
+            //datta[9] = 80;
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + "보증금 " + Math.random()*200 + '</div>');
+            infowindow.open(map, marker);
+            
+            
+            
+        });
+    }
+</script>
+</body>
+</html>

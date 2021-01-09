@@ -40,7 +40,43 @@ namespace CosmeticSolutionFinal.Data
                 return list;
             }
         }
-      
+        public static List<StationModel> GetInfo(string address)
+        {
+            using (var context = new CosmeticFinalEntities())
+            {
+                var query = from x in context.Stations
+                            where x.Address == address
+                            select new
+                            {
+                                x.Address,
+                                x.Longitude,
+                                x.Latitude
+                            };
+                var list = query.ToList();
+                List<StationModel> model = new List<StationModel>();
+
+                foreach (var x in list)
+                {
+                    model.Add(new StationModel(x.Address, x.Longitude, x.Latitude));
+                }
+
+                return model;
+            }
+        }
+
+        //public static List<Station> GetLatitude(string address)
+        //{
+        //    using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
+        //    {
+        //        var query = from x in context.Stations
+        //                    where x.Address == address
+        //                    select x.Latitude.GetValueOrDefault;
+
+        //        var list = query.ToList();
+        //        return list;
+        //    }
+        //}
     }
 }
+
 

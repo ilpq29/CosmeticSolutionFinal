@@ -8,10 +8,26 @@ namespace CosmeticSolutionFinal.Data.Models
 {
     public class StationModel
     {
-        public StationModel(string address)
+        private double? longitude;
+        private double? latitude;
+
+        public StationModel(string address, double? longitude, double? latitude)
         {
             Address = address;
+            this.longitude = longitude;
+            this.latitude = latitude;
         }
+
+        //private double? longitude;
+        //private double? latitude;
+
+
+        //public StationModel(string address, double? longitude, double? latitude) : this(address)
+        //{
+        //    Address = address;
+        //    this.longitude = longitude;
+        //    this.latitude = latitude;
+        //}
 
         public int StationId { get; set; }
         public string Name { get; set; }
