@@ -186,6 +186,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CosmeticSolutionFinal.Data.Models.AgeModel.datasource" />
     <None Include="Properties\DataSources\CosmeticSolutionFinal.Data.Models.OpenCloseModel.datasource" />
+    <None Include="Properties\DataSources\CosmeticSolutionFinal.Data.Models.StationModel1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,6 +201,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MyChoice.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HTML\KakaoAPI.html" />
     <Content Include="kakaoMap.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

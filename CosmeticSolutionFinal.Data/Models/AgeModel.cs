@@ -8,11 +8,22 @@ namespace CosmeticSolutionFinal.Data.Models
 {
     public class AgeModel
     {
+        private string address;
+        private double? longitude;
+        private double? latitude;
+
         public AgeModel(int birth, int totalPrice, DateTime date)
         {
             Date = date;
             Birth = birth;
             TotalPrice = totalPrice;
+        }
+
+        public AgeModel(string address, double? longitude, double? latitude)
+        {
+            this.address = address;
+            this.longitude = longitude;
+            this.latitude = latitude;
         }
 
         //private object date;
