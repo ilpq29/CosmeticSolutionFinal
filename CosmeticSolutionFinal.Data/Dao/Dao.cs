@@ -13,6 +13,7 @@ namespace CosmeticSolutionFinal.Data.Dao
 
         public static OrderDao ooder = new OrderDao();
         public static OpenCloseDao openClose = new OpenCloseDao();
+        public static StationDao station = new StationDao();
 
     }
 }

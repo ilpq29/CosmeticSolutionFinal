@@ -191,6 +191,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MyChoice.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="kakaoMap.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
