@@ -13,7 +13,7 @@ namespace CosmeticSolutionFinal
 {
     public partial class MainForm : Form
     {
-        private Dictionary<string, Form> childformDict = new Dictionary<string, Form>();
+        public Dictionary<string, Form> childformDict = new Dictionary<string, Form>();
         List<Form> childformList = new List<Form>();
         List<string> childformNameList = new List<string>();
         List<string> tabItemList = new List<string>();
@@ -29,7 +29,8 @@ namespace CosmeticSolutionFinal
             childformList.Add(_form);
             childformNameList.Add(keyString);
             _form.WindowState = FormWindowState.Maximized;
-            _form.MdiParent = this;
+            //if (keyString != "KakaoAPITest")
+                _form.MdiParent = this;
             _form.Show();
         }
 
@@ -71,6 +72,9 @@ namespace CosmeticSolutionFinal
             //7. 내맘대로홈
             form = new MyChoice();
             RegisterChildForm("MyChoice", form);
+
+            //form = new KakaoAPITest();
+            //RegisterChildForm("KakaoAPITest", form);
 
             ShowChildForm(childformNameList[0]);
         }

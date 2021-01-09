@@ -100,6 +100,13 @@
     <Compile Include="CompetitorStoreMap.Designer.cs">
       <DependentUpon>CompetitorStoreMap.cs</DependentUpon>
     </Compile>
+    <Compile Include="KakaoAPI.cs" />
+    <Compile Include="KakaoAPITest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KakaoAPITest.Designer.cs">
+      <DependentUpon>KakaoAPITest.cs</DependentUpon>
+    </Compile>
     <Compile Include="KakaoMap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompetitorStoreMap.resx">
       <DependentUpon>CompetitorStoreMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KakaoAPITest.resx">
+      <DependentUpon>KakaoAPITest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KakaoMap.resx">
       <DependentUpon>KakaoMap.cs</DependentUpon>
@@ -194,9 +204,11 @@
     <Content Include="MyChoice.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML\KakaoAPI.html" />
     <Content Include="kakaoMap.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

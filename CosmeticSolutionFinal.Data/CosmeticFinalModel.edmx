@@ -57,6 +57,16 @@
           <Property Name="영업외손익" Type="int" Nullable="false" />
           <Property Name="당기순이익" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="InformationNearStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StationId" Type="int" Nullable="false" />
+          <Property Name="NumberOfCompetitorStore" Type="int" Nullable="false" />
+          <Property Name="BuildArea" Type="int" Nullable="false" />
+          <Property Name="NumberOfStore" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -133,6 +143,20 @@
               <PropertyRef Name="StationId" />
             </Principal>
             <Dependent Role="Branch">
+              <PropertyRef Name="StationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InformationNearStation_Station">
+          <End Role="Station" Type="Self.Station" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InformationNearStation" Type="Self.InformationNearStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="StationId" />
+            </Principal>
+            <Dependent Role="InformationNearStation">
               <PropertyRef Name="StationId" />
             </Dependent>
           </ReferentialConstraint>
@@ -253,6 +277,7 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FinancialStatement" EntityType="Self.FinancialStatement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformationNearStation" EntityType="Self.InformationNearStation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderLine" EntityType="Self.OrderLine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PassengerInfo" EntityType="Self.PassengerInfo" Schema="dbo" store:Type="Tables" />
@@ -262,6 +287,10 @@
           <AssociationSet Name="FK_Branch_Station" Association="Self.FK_Branch_Station">
             <End Role="Station" EntitySet="Station" />
             <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InformationNearStation_Station" Association="Self.FK_InformationNearStation_Station">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="InformationNearStation" EntitySet="InformationNearStation" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Branch" Association="Self.FK_Order_Branch">
             <End Role="Branch" EntitySet="Branch" />
@@ -306,6 +335,7 @@
           <EntitySet Name="Categories" EntityType="CosmeticFinalModel.Category" />
           <EntitySet Name="Customers" EntityType="CosmeticFinalModel.Customer" />
           <EntitySet Name="FinancialStatements" EntityType="CosmeticFinalModel.FinancialStatement" />
+          <EntitySet Name="InformationNearStations" EntityType="CosmeticFinalModel.InformationNearStation" />
           <EntitySet Name="Orders" EntityType="CosmeticFinalModel.Order" />
           <EntitySet Name="OrderLines" EntityType="CosmeticFinalModel.OrderLine" />
           <EntitySet Name="PassengerInfoes" EntityType="CosmeticFinalModel.PassengerInfo" />
@@ -331,6 +361,10 @@
           <AssociationSet Name="FK_Order_Customer" Association="CosmeticFinalModel.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InformationNearStation_Station" Association="CosmeticFinalModel.FK_InformationNearStation_Station">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="InformationNearStation" EntitySet="InformationNearStations" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderLine_Order" Association="CosmeticFinalModel.FK_OrderLine_Order">
             <End Role="Order" EntitySet="Orders" />
@@ -405,6 +439,17 @@
           <Property Name="영업이익" Type="Int32" Nullable="false" />
           <Property Name="영업외손익" Type="Int32" Nullable="false" />
           <Property Name="당기순이익" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InformationNearStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfCompetitorStore" Type="Int32" Nullable="false" />
+          <Property Name="BuildArea" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfStore" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Station" Relationship="CosmeticFinalModel.FK_InformationNearStation_Station" FromRole="InformationNearStation" ToRole="Station" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -482,6 +527,7 @@
           <Property Name="Latitude" Type="Double" />
           <Property Name="Longitude" Type="Double" />
           <NavigationProperty Name="Branches" Relationship="CosmeticFinalModel.FK_Branch_Station" FromRole="Station" ToRole="Branch" />
+          <NavigationProperty Name="InformationNearStations" Relationship="CosmeticFinalModel.FK_InformationNearStation_Station" FromRole="Station" ToRole="InformationNearStation" />
           <NavigationProperty Name="PassengerInfoes" Relationship="CosmeticFinalModel.FK_TransportInfo_Station" FromRole="Station" ToRole="PassengerInfo" />
           <NavigationProperty Name="ResultOfAnalysis" Relationship="CosmeticFinalModel.FK_ResultOfAnalysis_Station" FromRole="Station" ToRole="ResultOfAnalysi" />
         </EntityType>
@@ -555,6 +601,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InformationNearStation_Station">
+          <End Type="CosmeticFinalModel.Station" Role="Station" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CosmeticFinalModel.InformationNearStation" Role="InformationNearStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="StationId" />
+            </Principal>
+            <Dependent Role="InformationNearStation">
+              <PropertyRef Name="StationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OrderLine_Order">
           <End Type="CosmeticFinalModel.Order" Role="Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -609,7 +669,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -669,6 +729,17 @@
                 <ScalarProperty Name="자산" ColumnName="자산" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="FinancialStatementId" ColumnName="FinancialStatementId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformationNearStations">
+            <EntityTypeMapping TypeName="CosmeticFinalModel.InformationNearStation">
+              <MappingFragment StoreEntitySet="InformationNearStation">
+                <ScalarProperty Name="NumberOfStore" ColumnName="NumberOfStore" />
+                <ScalarProperty Name="BuildArea" ColumnName="BuildArea" />
+                <ScalarProperty Name="NumberOfCompetitorStore" ColumnName="NumberOfCompetitorStore" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
