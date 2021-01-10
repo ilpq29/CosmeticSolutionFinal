@@ -22,8 +22,8 @@ namespace CosmeticSolutionFinal
             InitializeComponent();
             this.bingMapDataProvider1.BingKey = this.bingKey;
             this.bingGeocodeDataProvider.BingKey = this.bingKey;
-            this.buttonSearch.Click += buttonSearch_Click;
-        }
+/*            this.buttonSearch.Click += buttonSearch_Click;
+*/        }
         #region 버튼 이벤트
         private void comboSearchAddress_Click(object sender, EventArgs e)
         {
@@ -52,10 +52,17 @@ namespace CosmeticSolutionFinal
             return;      
         }
         private void buttonReset_Click(object sender, EventArgs e)
-        {
-            BingMap.Layers.Where(l => l is VectorItemsLayer);
+        {         
+            // 지도에 표시한 범위 삭제
             BingMap.CenterPoint = new GeoPoint(37.559418939678949, 126.991928283803932);
             BingMap.ZoomLevel = 10;
+            for (int i = this.BingMap.Layers.Count - 1; i > 1; i--)
+            {
+                if (this.BingMap.Layers[i] is VectorItemsLayer)
+                {
+                    this.BingMap.Layers.Remove(this.BingMap.Layers[i]);
+                }
+            }          
         }
         #endregion
 
