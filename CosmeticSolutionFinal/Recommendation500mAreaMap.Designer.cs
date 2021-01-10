@@ -42,7 +42,14 @@ namespace CosmeticSolutionFinal
             this.지역검색 = new DevExpress.XtraLayout.LayoutControlItem();
             this.지하철검색 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bingGeocodeDataProvider = new DevExpress.XtraMap.BingGeocodeDataProvider();
+            this.informationLayer1 = new DevExpress.XtraMap.InformationLayer();
             this.stationModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mapItemStorage = new DevExpress.XtraMap.MapItemStorage();
+            this.vectorItemsLayer = new DevExpress.XtraMap.VectorItemsLayer();
+            this.distanceBasedClusterer1 = new DevExpress.XtraMap.DistanceBasedClusterer();
+            this.buttonReset = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BingMap)).BeginInit();
@@ -52,10 +59,12 @@ namespace CosmeticSolutionFinal
             ((System.ComponentModel.ISupportInitialize)(this.지하철검색)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.buttonReset);
             this.layoutControl1.Controls.Add(this.buttonSearch);
             this.layoutControl1.Controls.Add(this.comboSearchStation);
             this.layoutControl1.Controls.Add(this.comboSearchAddress);
@@ -74,7 +83,7 @@ namespace CosmeticSolutionFinal
             // 
             this.buttonSearch.Location = new System.Drawing.Point(12, 42);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(1126, 27);
+            this.buttonSearch.Size = new System.Drawing.Size(561, 27);
             this.buttonSearch.StyleController = this.layoutControl1;
             this.buttonSearch.TabIndex = 7;
             this.buttonSearch.Text = "검색";
@@ -90,7 +99,6 @@ namespace CosmeticSolutionFinal
             this.comboSearchStation.Name = "comboSearchStation";
             this.comboSearchStation.Size = new System.Drawing.Size(501, 23);
             this.comboSearchStation.TabIndex = 6;
-            this.comboSearchStation.SelectedIndexChanged += new System.EventHandler(this.comboSearchStation_SelectedIndexChanged);
             // 
             // comboSearchAddress
             // 
@@ -110,6 +118,8 @@ namespace CosmeticSolutionFinal
             // 
             this.BingMap.CenterPoint = new DevExpress.XtraMap.GeoPoint(37.559418939678949D, 126.99192828380393D);
             this.BingMap.Layers.Add(this.imageLayer1);
+            this.BingMap.Layers.Add(this.informationLayer1);
+            this.BingMap.Layers.Add(this.vectorItemsLayer);
             this.BingMap.Location = new System.Drawing.Point(12, 73);
             this.BingMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BingMap.MinZoomLevel = 4D;
@@ -129,7 +139,8 @@ namespace CosmeticSolutionFinal
             this.layoutControlItem1,
             this.지역검색,
             this.지하철검색,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1150, 562);
             this.Root.TextVisible = false;
@@ -164,13 +175,36 @@ namespace CosmeticSolutionFinal
             this.layoutControlItem2.Control = this.buttonSearch;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1130, 31);
+            this.layoutControlItem2.Size = new System.Drawing.Size(565, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            this.bingGeocodeDataProvider.ProcessMouseEvents = true;
+            this.informationLayer1.DataProvider = this.bingGeocodeDataProvider;
             // 
             // stationModelBindingSource
             // 
             this.stationModelBindingSource.DataSource = typeof(CosmeticSolutionFinal.Data.Models.StationModel);
+            this.mapItemStorage.Clusterer = this.distanceBasedClusterer1;
+            this.vectorItemsLayer.Data = this.mapItemStorage;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(577, 42);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(561, 27);
+            this.buttonReset.StyleController = this.layoutControl1;
+            this.buttonReset.TabIndex = 8;
+            this.buttonReset.Text = "초기화";
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.buttonReset;
+            this.layoutControlItem3.Location = new System.Drawing.Point(565, 30);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(565, 31);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // Recommendation500mAreaMap
             // 
@@ -181,7 +215,6 @@ namespace CosmeticSolutionFinal
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Recommendation500mAreaMap";
             this.Text = "500m 이내 입점 추천 정보 맵";
-            this.Load += new System.EventHandler(this.Recommendation500mAreaMap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BingMap)).EndInit();
@@ -191,6 +224,7 @@ namespace CosmeticSolutionFinal
             ((System.ComponentModel.ISupportInitialize)(this.지하철검색)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +244,12 @@ namespace CosmeticSolutionFinal
         private DevExpress.XtraLayout.LayoutControlItem 지하철검색;
         private DevExpress.XtraEditors.SimpleButton buttonSearch;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraMap.InformationLayer informationLayer1;
+        private DevExpress.XtraMap.BingGeocodeDataProvider bingGeocodeDataProvider;
+        private DevExpress.XtraMap.VectorItemsLayer vectorItemsLayer;
+        private DevExpress.XtraMap.MapItemStorage mapItemStorage;
+        private DevExpress.XtraMap.DistanceBasedClusterer distanceBasedClusterer1;
+        private DevExpress.XtraEditors.SimpleButton buttonReset;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

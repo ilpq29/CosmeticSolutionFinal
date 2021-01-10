@@ -48,8 +48,8 @@ namespace CosmeticSolutionFinal.Data
                             where x.Name == station
                             select new
                             {
-                                x.Longitude,
-                                x.Latitude
+                                x.Latitude,
+                                x.Longitude
                             };
                 var list = query.ToList();
                 List<StationModel> model = new List<StationModel>();
