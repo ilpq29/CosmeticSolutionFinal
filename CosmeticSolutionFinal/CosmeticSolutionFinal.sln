@@ -13,14 +13,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{5E159D65-5115-409D-851E-E42C6479279A}"
 	ProjectSection(SolutionItems) = preProject
 		..\Document\DAO Classes.jpg = ..\Document\DAO Classes.jpg
+		..\Document\DB 스키마.jpg = ..\Document\DB 스키마.jpg
 		..\Document\Model Classes.jpg = ..\Document\Model Classes.jpg
 		..\Document\Open Close 시간 추천.jpg = ..\Document\Open Close 시간 추천.jpg
 		..\Readme.md = ..\Readme.md
 		..\Document\WinForm Classes.jpg = ..\Document\WinForm Classes.jpg
 		..\Document\경쟁업체매장정보.jpg = ..\Document\경쟁업체매장정보.jpg
 		..\Document\경쟁업체매장정보KakaoMap.jpg = ..\Document\경쟁업체매장정보KakaoMap.jpg
+		..\Document\순서도.jpg = ..\Document\순서도.jpg
+		..\Document\액티비티 다이어그램.jpg = ..\Document\액티비티 다이어그램.jpg
 		..\Document\월세 시세 검색.jpg = ..\Document\월세 시세 검색.jpg
+		..\Document\유스케이스 다이어그램.jpg = ..\Document\유스케이스 다이어그램.jpg
+		..\Document\입점 정보 점수 조회 시퀀스 다이어그램.jpg = ..\Document\입점 정보 점수 조회 시퀀스 다이어그램.jpg
 		..\Document\입점 추천 점수.jpg = ..\Document\입점 추천 점수.jpg
+		..\Document\지하철 역 입점 정보 조회 시퀀스 다이어그램.jpg = ..\Document\지하철 역 입점 정보 조회 시퀀스 다이어그램.jpg
 		..\Document\지하철역 반경 500M 주변 추천 정보 화면.jpg = ..\Document\지하철역 반경 500M 주변 추천 정보 화면.jpg
 		..\Document\추천 결과 화면.jpg = ..\Document\추천 결과 화면.jpg
 	EndProjectSection
