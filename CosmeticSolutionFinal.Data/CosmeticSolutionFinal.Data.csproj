@@ -93,7 +93,6 @@
     <Compile Include="EFLibrary\QuadKeyDao.cs" />
     <Compile Include="EFLibrary\SingleKeyDao.cs" />
     <Compile Include="EFLibrary\TripleKeyDao.cs" />
-    <Compile Include="Entities\Station.cs" />
     <Compile Include="FinancialStatement.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

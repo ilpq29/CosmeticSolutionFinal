@@ -40,27 +40,24 @@ namespace CosmeticSolutionFinal.Data
                 return list;
             }
         }
-        public static List<StationModel> GetInfo(string address)
+        public static List<StationModel> GetInfo(string station)
         {
             using (var context = new CosmeticFinalEntities())
             {
                 var query = from x in context.Stations
-                            where x.Address == address
+                            where x.Name == station
                             select new
                             {
-                                x.Address,
-                                x.Longitude,
-                                x.Latitude
+                                x.Latitude,
+                                x.Longitude
                             };
                 var list = query.ToList();
                 List<StationModel> model = new List<StationModel>();
-
                 foreach (var x in list)
                 {
-                    model.Add(new StationModel(x.Address, x.Longitude, x.Latitude));
+                    model.Add(new StationModel(x.Latitude, x.Longitude));
                 }
-
-                return model;
+                return model.ToList();
             }
         }
 
