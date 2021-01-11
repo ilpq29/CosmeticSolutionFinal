@@ -77,7 +77,7 @@ namespace CosmeticSolutionFinal
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 21);
             this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
+            this.button1.Text = "검색";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -159,7 +159,7 @@ namespace CosmeticSolutionFinal
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.layoutControl1);
             this.Name = "MyChoice";
-            this.Text = "내맘대로홈";
+            this.Text = "월세 시세 검색";
             this.Load += new System.EventHandler(this.MyChoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

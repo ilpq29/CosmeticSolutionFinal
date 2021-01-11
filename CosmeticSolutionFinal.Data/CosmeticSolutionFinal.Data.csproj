@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="CosmeticData.cd" />
     <None Include="CosmeticFinalModel.edmx.diagram">
       <DependentUpon>CosmeticFinalModel.edmx</DependentUpon>
     </None>

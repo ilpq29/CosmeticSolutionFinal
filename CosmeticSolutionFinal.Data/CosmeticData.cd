@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CosmeticSolutionFinal.Data.BrandDao">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Dao\BrandDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.OpenCloseDao">
+    <Position X="1.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\OpenCloseDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.OrderDao">
+    <Position X="7.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAQAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Dao\OrderDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.StationDao">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAEAAAAAAAAAAAAEACAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\StationDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Dao.InfoNearStationDao">
+    <Position X="5" Y="6" Width="2.75" />
+    <InheritanceLine Type="EFLibrary.SingleKeyDao&lt;T, K&gt;" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="2.441" />
+        <Point X="6.5" Y="6" />
+        <Point X="6.438" Y="6" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Dao\InfoNearStation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Dao.PassengerInfoDao">
+    <Position X="9.75" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Dao\PassengerInfoDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Models.AgeModel">
+    <Position X="11.25" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgAAAAAAAAAAAAAAAAAACAIAQAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AgeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Models.OpenCloseModel">
+    <Position X="14" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAIABAAIIAAAAwAAAAABAAAAAAABAAAAIAiACAA=</HashCode>
+      <FileName>Models\OpenCloseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Models.OrderAnalysis">
+    <Position X="16.25" Y="9.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAEAAAAAAEAAAAAAAAAAAAACAAAAAQAAAAA=</HashCode>
+      <FileName>Models\OrderAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Models.PopulationOfFemalePassenger">
+    <Position X="21.25" Y="9.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAACAAAAAAAAAQAAAAAgAAAABAAAAAAAAA=</HashCode>
+      <FileName>Models\PopulationOfFemalePassenger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmeticSolutionFinal.Data.Models.StationModel">
+    <Position X="19.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAEAAAAAAAAAIAAQACAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.DualKeyDao&lt;T, K1, K2&gt;" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>EFLibrary\DualKeyDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.SingleKeyDao&lt;T, K&gt;" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAEAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>EFLibrary\SingleKeyDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.BaseDao&lt;T&gt;" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>EFLibrary\BaseDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

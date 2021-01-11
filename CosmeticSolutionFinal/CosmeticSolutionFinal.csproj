@@ -183,6 +183,7 @@
     <EmbeddedResource Include="RecommendStoreOpenCloseTime.resx">
       <DependentUpon>RecommendStoreOpenCloseTime.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CosmeticUIClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CosmeticSolutionFinal.Data.Models.AgeModel.datasource" />
     <None Include="Properties\DataSources\CosmeticSolutionFinal.Data.Models.OpenCloseModel.datasource" />

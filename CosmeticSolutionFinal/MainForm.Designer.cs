@@ -109,7 +109,7 @@ namespace CosmeticSolutionFinal
             // 
             // barButtonItem6
             // 
-            this.barButtonItem6.Caption = "내맘대로홈";
+            this.barButtonItem6.Caption = "월세시세검색";
             this.barButtonItem6.Id = 13;
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick_1);
