@@ -60,19 +60,6 @@ namespace CosmeticSolutionFinal.Data
                 return model.ToList();
             }
         }
-
-        //public static List<Station> GetLatitude(string address)
-        //{
-        //    using (CosmeticFinalEntities context = (CosmeticFinalEntities)DbContextCreator.Create())
-        //    {
-        //        var query = from x in context.Stations
-        //                    where x.Address == address
-        //                    select x.Latitude.GetValueOrDefault;
-
-        //        var list = query.ToList();
-        //        return list;
-        //    }
-        //}
     }
 }
 
