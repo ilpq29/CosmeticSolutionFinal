@@ -16,7 +16,8 @@ namespace CosmeticSolutionFinal
 {
     public partial class Recommendation500mAreaMap : Form
     {
-        private string bingKey = "AnarxWHrNxOAE7_aT1ydFrZ1eVvFqxq_9-ZyigJYu-aRDeOzuKGysCRsbiBRKkAU";
+        private readonly string bingKey = "AnarxWHrNxOAE7_aT1ydFrZ1eVvFqxq_9-ZyigJYu-aRDeOzuKGysCRsbiBRKkAU";
+        private int globalStationId;
         public Recommendation500mAreaMap()
         {
             InitializeComponent();
@@ -82,20 +83,34 @@ namespace CosmeticSolutionFinal
         }
         public void ListCoordinatesInfo(string station)
         {
-            List<StationModel> coordinatesList = StationDao.GetInfo(station);           
+            List<StationModel> coordinatesList = StationDao.GetInfo(station);
             double? latitude, longitude;
             foreach (var x in coordinatesList)
-            {            
+            {
                 latitude = x.Latitude;
                 longitude = x.Longitude;
-                
+                globalStationId = x.StationId;
                 this.bingGeocodeDataProvider.RequestLocationInformation(new GeoPoint((double)latitude, (double)longitude), null);
 
                 MapBubble((double)latitude, (double)longitude);
             }
         }
-        #endregion
+        public void ListBranchInfo(int stationId)
+        {
+            List<BranchModel> branchList = BranchDao.GetBranch(stationId);
 
+            double? latitude, longitude;
+            string branchName;
+            foreach (var x in branchList)
+            {
+                branchName = x.Name;
+                latitude = x.Latitude;
+                longitude = x.Longitude;
+
+                this.bingGeocodeDataProviderBranchName.RequestLocationInformation(new GeoPoint((double)latitude, (double)longitude), null);
+            }
+        }
+        #endregion
         #region MapControl 지도에 범위 표시
         public void MapBubble(double latitude, double longitude)
         {

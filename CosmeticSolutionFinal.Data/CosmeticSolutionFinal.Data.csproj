@@ -82,6 +82,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dao\BranchDao.cs" />
     <Compile Include="Dao\Dao.cs" />
     <Compile Include="Dao\InfoNearStation.cs" />
     <Compile Include="Dao\OpenCloseDao.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Dao\BrandDao.cs" />
     <Compile Include="Dao\StationDao.cs" />
     <Compile Include="Models\AgeModel.cs" />
+    <Compile Include="Models\BranchModel.cs" />
     <Compile Include="Models\OrderAnalysis.cs" />
     <Compile Include="Models\OpenCloseModel.cs" />
     <Compile Include="Models\PopulationOfFemalePassenger.cs" />
